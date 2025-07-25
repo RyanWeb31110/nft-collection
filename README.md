@@ -1,39 +1,98 @@
-# <h1 align="center"> Forge Template </h1>
+# NFT Collection Minting Platform
 
-**Template repository for getting started quickly with Foundry projects**
+A flexible NFT minting collection project based on [Foundry](https://getfoundry.sh/) and OpenZeppelin ERC721.
+This repository is designed to support multiple NFT contracts, each representing a unique NFT collection.
+**Example:** The `MyPuppyLeLe` contract is one such NFT collection in this project.
 
-![Github Actions](https://github.com/foundry-rs/forge-template/workflows/CI/badge.svg)
+## Project Overview
 
-## Getting Started
+This project provides a foundation for deploying and managing multiple ERC721 NFT collections.
+Each collection can have its own contract, metadata, and minting logic.
 
-Click "Use this template" on [GitHub](https://github.com/foundry-rs/forge-template) to create a new repository with this repo as the initial state.
+## Features
 
-Or, if your repo already exists, run:
-```sh
-forge init
-forge build
-forge test
+- Support for multiple independent NFT contracts
+- Each contract can have its own metadata and minting rules
+- All metadata and images are stored on IPFS
+- Easy to extend: add new NFT collections by creating new contracts in `src/`
+
+## Directory Structure
+
+```
+src/                # Solidity smart contracts (one per NFT collection)
+script/             # Foundry deployment/minting scripts
+metadata/json/      # NFT metadata (JSON, one per token)
+metadata/images/    # NFT images (JPG, one per token)
 ```
 
-## Writing your first test
+## Example: MyPuppyLeLe Collection
 
-All you need is to `import forge-std/Test.sol` and then inherit it from your test contract. Forge-std's Test contract comes with a pre-instatiated [cheatcodes environment](https://book.getfoundry.sh/cheatcodes/), the `vm`. It also has support for [ds-test](https://book.getfoundry.sh/reference/ds-test.html)-style logs and assertions. Finally, it supports Hardhat's [console.log](https://github.com/brockelmore/forge-std/blob/master/src/console.sol). The logging functionalities require `-vvvv`.
+**src/MyPuppyLeLe.sol**
 
-```solidity
-pragma solidity 0.8.10;
+- ERC721 NFT contract for "My Puppy LeLe"
+- Only the owner can mint new NFTs
+- Each token is associated with a unique metadata URI
 
-import "forge-std/Test.sol";
-
-contract ContractTest is Test {
-    function testExample() public {
-        vm.roll(100);
-        console.log(1);
-        emit log("hi");
-        assertTrue(true);
-    }
+**metadata/json/1.json** (example metadata)
+```json
+{
+  "name": "My Puppy LeLe",
+  "description": "...",
+  "image": "ipfs://...",
+  "attributes": [
+    { "trait_type": "Breed", "value": "Chinese Rural Dog" },
+    ...
+  ]
 }
 ```
 
-## Development
+## How to Add a New NFT Collection
 
-This project uses [Foundry](https://getfoundry.sh). See the [book](https://book.getfoundry.sh/getting-started/installation.html) for instructions on how to install and use Foundry.
+1. Create a new contract in `src/`, e.g. `MyNewNFTCollection.sol`
+2. Implement your minting logic and metadata structure
+3. Add deployment/minting scripts in `script/`
+4. Add metadata and images in `metadata/json/` and `metadata/images/`
+
+## How to Use
+
+### 1. Install Foundry
+
+Follow the [Foundry Book](https://book.getfoundry.sh/getting-started/installation.html) to install Foundry.
+
+### 2. Install Dependencies
+
+```sh
+forge install
+```
+
+### 3. Build Contracts
+
+```sh
+forge build
+```
+
+### 4. Deploy Any NFT Collection Contract
+
+Deploy the desired contract (e.g., `MyPuppyLeLe`) using Foundry, Hardhat, or Remix.
+
+### 5. Mint NFT
+
+Edit the corresponding script in `script/` to set your contract address and metadata URI, then run:
+
+```sh
+forge script script/Mint.s.sol --private-key <YOUR_PRIVATE_KEY> --broadcast --rpc-url <YOUR_RPC_URL>
+```
+
+### 6. View Your NFT
+
+After minting, you can view your NFT on compatible platforms (e.g., OpenSea testnet) using the contract address and token ID.
+
+## Security & Sensitive Data
+
+- `.env_local` is gitignored for sensitive keys.
+- **Never commit private keys or secrets to the repository!**
+- Double-check all files before pushing to GitHub.
+
+## License
+
+MIT

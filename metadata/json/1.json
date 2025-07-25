@@ -1,0 +1,44 @@
+{
+    "name": "My Puppy LeLe",
+    "description": "My Puppy Lele is a Chinese rural dog I picked up on November 10th, 2024. He is a sweet little male puppy.\nSince he came into my life, he has brought me endless joy and comfort, like a warm ray of sunshine that lights up my daily days.\nI'm so grateful for his presence—for every wag of his tail when I come home, every soft nuzzle when I'm tired, and every playful run around the yard that fills the air with laughter.\nThis is a tribute to him, a way to cherish all the precious moments we've shared. More than anything, I hope my dear Lele can continue to grow up healthy, happy, and carefree, with his bright eyes always sparkling and his heart always full of love.\nHe's not just a pet; he's a beloved member of my family, and I'll always treasure him.",
+    "image": "ipfs://bafybeidzrqwtpikb4uj3bmskrnizeij4g52arhxim6uahmynvemuubv4pe.jpg",
+    "images": [
+        "ipfs://bafybeidzrqwtpikb4uj3bmskrnizeij4g52arhxim6uahmynvemuubv4pe.jpg",
+        "ipfs://bafybeic4scuadlo5jujiwqp55ys2nypriybldcmdtzayle4ximdzxhstvy.jpg",
+        "ipfs://bafybeiaedrw3uyksaafahwzg6bcun65nm7nxb7hnzefl3nviipj2q55rti.jpg"
+    ],
+    "attributes": [
+        {
+            "trait_type": "Breed",
+            "value": "Chinese Rural Dog"
+        },
+        {
+            "trait_type": "Color",
+            "value": "Black"
+        },
+        {
+            "trait_type": "Gender",
+            "value": "Male"
+        },
+        {
+            "trait_type": "Adoption Date",
+            "value": "November 10th, 2024"
+        },
+        {
+            "trait_type": "Personality",
+            "value": "Playful & Affectionate"
+        },
+        {
+            "trait_type": "Favorite Activity",
+            "value": "Downward Dog Bow"
+        },
+        {
+            "trait_type": "Signature Behavior",
+            "value": "Tail Wagging at Greetings"
+        },
+        {
+            "trait_type": "Status",
+            "value": "Loved Family Member"
+        }
+    ]
+}
